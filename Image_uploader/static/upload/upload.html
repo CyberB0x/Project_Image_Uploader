@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Image Hosting</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<header class="main-header">
+    <h1>Upload Photos</h1>
+    <p>Upload selfies, memes, or any fun pictures here.</p>
+    <div>
+    <button id="btnGoToImages" class="hero-button">Show gallery</button>
+</div>
+</header>
+
+<main>
+    <section id="upload" class="tab-content active">
+        <div class="upload-area" id="drop-area" ondrop="handleFiles(event.dataTransfer.files)">
+            <div class="upload-area__icon">
+                <img src="upload.png" alt="Upload Icon" width="100" height="100"/>
+            </div>
+            <p>Select a file or drag and drop here</p>
+            <p class="upload-area__subtext">Only support .jpg, .png and
+                .gif.<br>Maximum file size is 5MB</p>
+
+            <input type="file" id="fileInput" hidden/>
+        </div>
+
+        <div>
+            <button id="browseButton">BROWSE YOUR FILE</button>
+        </div>
+        <div class="current-upload">
+            <label for="uploadUrl">Current Upload</label>
+            <div class="current-upload__field">
+                <input type="text" id="uploadUrl" placeholder="http://"/>
+                <button id="copyButton" disabled><img src="copy.png" alt="Copy" width="30" height="30"></button>
+            </div>
+        </div>
+    </section>
+</main>
+<br>
+<h2 class="fw-bold mt-4">Gallery</h2>
+<div class="gallery">
+    <img src="https://picsum.photos/150?random=1" alt="Gallery Image 1">
+    <img src="https://picsum.photos/150?random=2" alt="Gallery Image 2">
+    <img src="https://picsum.photos/150?random=3" alt="Gallery Image 3">
+    <img src="https://picsum.photos/150?random=4" alt="Gallery Image 4">
+</div>
+</br>
+
+<button class="main-page" onclick="window.location.href='../index.html'">Main page</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
