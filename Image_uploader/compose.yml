@@ -9,7 +9,10 @@ services:
       - ./images:/app/images
       - ./logs:/app/logs
     networks:
-      - app-network
+      - db-network
+      - front-network
+    depends_on:
+      - db
 
   nginx:
     image: nginx
@@ -24,9 +27,25 @@ services:
       - ./images:/images
       - ./logs:/var/log/nginx
     networks:
-      - app-network
+      - front-network
     depends_on:
       - app
 
+  db:
+    image: postgres:17-alpine
+    container_name: db
+    env_file:
+      - ./.env
+    networks:
+      - db-network
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
 networks:
-  app-network:
+  front-network:
+  db-network:
+
+volumes:
+  db_data:
