@@ -2,9 +2,9 @@ from http.server import HTTPServer
 
 from loguru import logger
 
-from DBManager import DBManager
-from ImageHostingHandler import ImageHostingHttpRequestHandler
-from Router import Router
+from database_manager import DBManager
+from ImageHosting import ImageHostingHttpRequestHandler
+from router import Router
 from settings import SERVER_ADDRESS
 
 
